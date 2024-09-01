@@ -6,35 +6,141 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>YouTube Application</title>
+    <link rel="shortcut icon" href="https://static.vecteezy.com/system/resources/previews/023/986/704/non_2x/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png" type="image/x-icon">
     <style>
-        /* Custom CSS styles */
+         body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9; /* Light gray background like YouTube */
+        }
+
+        /* Header Styling */
         header {
-            background-color: rgba(255,255,255,0.5); 
-            padding: 20px; 
+            background-color: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            /* display: flex; */
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         #logo {
-            width: 100px; 
+            width: 100px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
+
+        #logo:hover {
+            transform: scale(1.1); /* Scale on hover */
+        }
+
+        /* Search Bar Styling */
         form {
-            margin-top: 20px; 
+            display: flex;
+            flex: 1;
+            justify-content: center;
         }
+
         #search-text {
-            height: 40px; 
-            border-radius: 20px;  
-            padding: 5px 10px; 
-            border: 1px solid #ccc; 
+            width: 50%;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+            transition: all 0.3s ease;
         }
+
+        #search-text:focus {
+            border-color: #ff0000; /* YouTube red */
+        }
+
         #search-btn {
-            font-size: 1.5em; 
-            cursor: pointer; 
-            margin-left: 10px; 
+            background-color: #f8f8f8;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-left: none;
+            border-radius: 0 30px 30px 0;
+            font-size: 18px;
+            cursor: pointer;
+            color: #555;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
-        hr {
-            border-top: 2px solid #000; 
-            margin-top: 20px; 
+
+        #search-btn:hover {
+            background-color: #f1f1f1;
+            transform: scale(1.1); /* Zoom effect on hover */
+            transition: transform 0.3s ease; /* Smooth transition for the zoom */
         }
+
+        /* Main Content Styling */
         #my-div {
-            padding: 20px; 
+            padding: 80px 20px; /* Adding top padding for space due to fixed header */
+            margin-top: 20px;
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            max-width: 1200px;
+            margin: 100px auto 0 auto; /* Centering content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* Initially hidden */
+            animation: fadeInUp 1.5s ease-in-out forwards;
+        }
+
+        /* Animation for main content */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px); /* Slide up */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer (Optional to complete YouTube look) */
+        footer {
+            padding: 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+            border-top: 1px solid #eaeaea;
+            margin-top: 30px;
+        }
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        footer ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        footer ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #search-text {
+                width: 70%;
+            }
+
+            #logo {
+                width: 80px;
+            }
         }
     </style>
 </head>
@@ -52,6 +158,18 @@
 </header>
 <hr />
 <div id="my-div" style="display: flex; justify-content: center; flex-wrap: wrap;" class="container"></div>
+<footer>
+    <div class="container">
+        <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+        <p>&copy; 2024 YouTube Clone. All Rights Reserved.</p>
+    </div>
+</footer>
 
 <script src="./main.js"></script>
 </body>
